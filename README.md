@@ -7,16 +7,17 @@ Multiprotocol Addon][silabs-multiprotocol] required firmware version.
 after testing them myself, however, I only have one USB Dongle and cannot
 guarantee they will work for all, as I am not an expert on these devices.
 
-| Configuration                      | Value                                                                   |
-|------------------------------------|-------------------------------------------------------------------------|
-| Project                            | [Multiprotocol (OpenThread+Zigbee) RCP (rcp-uart-802154)][silabs-gecko] |
-| Board                              | Custom Board                                                            |
-| Target Device                      | EFR32MG21A020F768IM32                                                   |
-| CPC Secondary - UART: RX           | PB00                                                                    |
-| CPC Secondary - UART: TX           | PB01                                                                    |
-| CPC Secondary - UART: Flow Control | None                                                                    |
-| CPC Security                       | Disabled encryption                                                     |
-| RAIL Utility, PTI: Selected Module | None                                                                    |
+| Configuration                                   | Value                                                                   |
+|-------------------------------------------------|-------------------------------------------------------------------------|
+| Project                                         | [Multiprotocol (OpenThread+Zigbee) RCP (rcp-uart-802154)][silabs-gecko] |
+| Board                                           | Custom Board                                                            |
+| Target Device                                   | EFR32MG21A020F768IM32                                                   |
+| RAIL Utility, PTI: Selected Module              | None                                                                    |
+| CPC Secondary - UART: RX                        | PB00                                                                    |
+| CPC Secondary - UART: TX                        | PB01                                                                    |
+| CPC Secondary - UART: Flow Control              | None                                                                    |
+| CPC Security                                    | Disabled encryption                                                     |
+| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                                                     |
 
 <!-- commander.exe gbl create rcp-uart-802154....gbl --app rcp-uart-802154....s37 -->
 
