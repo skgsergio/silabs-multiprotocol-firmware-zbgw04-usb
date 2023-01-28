@@ -3,26 +3,53 @@
 Firmware repository aiming to keep up with Home Assistant's [Silicon Labs
 Multiprotocol Addon][silabs-multiprotocol] required firmware version.
 
+Original source: [SiliconLabs Multiprotocol (OpenThread+Zigbee) RCP
+(rcp-uart-802154)][silabs-gecko]
+
 **DISCLAIMER:** Use these firmware files at your own risk. I will upload them
 after testing them myself, however, I only have one USB Dongle and cannot
 guarantee they will work for all, as I am not an expert on these devices.
 
-| Configuration                                   | Value                                                                   |
-|-------------------------------------------------|-------------------------------------------------------------------------|
-| Project                                         | [Multiprotocol (OpenThread+Zigbee) RCP (rcp-uart-802154)][silabs-gecko] |
-| Board                                           | Custom Board                                                            |
-| Target Device                                   | EFR32MG21A020F768IM32                                                   |
-| RAIL Utility, PTI: Selected Module              | None                                                                    |
-| CPC Secondary - UART: RX                        | PB00                                                                    |
-| CPC Secondary - UART: TX                        | PB01                                                                    |
-| CPC Secondary - UART: Flow Control              | None                                                                    |
-| CPC Security                                    | Disabled encryption                                                     |
-| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                                                     |
+## Firmware configuration parameters
+
+| Setting / ZB-GW04 revision                      | v1.0/v1.1 (Without Hardware Flow Control) | v1.2 (With Hardware Flow Control) |
+|-------------------------------------------------|-------------------------------------------|-----------------------------------|
+| Board                                           | Custom Board                              | Custom Board                      |
+| Target Device                                   | EFR32MG21A020F768IM32                     | EFR32MG21A020F768IM32             |
+| RAIL Utility, PTI: Selected Module              | None                                      | None                              |
+| CPC Secondary - UART: Flow Control              | None                                      | CTS/RTS                           |
+| CPC Secondary - UART: RX                        | PB00                                      | PB00                              |
+| CPC Secondary - UART: TX                        | PB01                                      | PB01                              |
+| CPC Secondary - UART: CTS                       | None                                      | PD04                              |
+| CPC Secondary - UART: RTS                       | None                                      | PD03                              |
+| CPC Security                                    | Disabled Encryption                       | Disabled Encryption               |
+| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                       | 128                               |
 
 <!-- commander.exe gbl create rcp-uart-802154....gbl --app rcp-uart-802154....s37 -->
 
-[silabs-multiprotocol]: https://github.com/home-assistant/addons/tree/master/silabs-multiprotocol
-[silabs-gecko]: https://github.com/SiliconLabs/gecko_sdk
+**IMPORTANT:** Pick the correct firmware version for your dongle
+revision. Firmware with hardware flow control WON'T work in dongles that doesnt
+support it. So please check carefully which dongle revision you own.
+
+## Firmware file naming schema
+
+```
+ZB-GW04_vX.Y_GeckoSDK_vX.Y.Z_rcp-uart-802154_(no)hwfc_115200
+`-----´ `--´ `-------------´ `-------------´ `------´ `----´
+   |     |          |               |            |       |
+   |     |          |               |            |       '- Baudrate
+   |     |          |               |            |
+   |     |          |               |            |- nohwfc = No Hardware Flow Control
+   |     |          |               |            '- hwfc   = Hardware Flow Control
+   |     |          |               |
+   |     |          |               '- Multiprotocol (OpenThread+Zigbee) RCP Firmware
+   |     |          |
+   |     |          '- Gecko SDK version X.Y.Z
+   |     |
+   |     '- Dongle Hardware Revision
+   |
+   '- Dongle Hardware Name
+```
 
 ## Flashing instructions
 
@@ -34,7 +61,7 @@ universal-silabs-flasher \
     --bootloader-baudrate 115200 \
     --baudrate 115200 \
     flash \
-    --firmware firmware_file.gbl \
+    --firmware FIRMWARE_FILE.gbl \
     --allow-downgrades \
     --allow-cross-flashing
 ```
@@ -52,12 +79,12 @@ use the version from the previous listed version. For example, if you are using
 Addon version 0.11.4 you must use the firmware listed for the 0.11.0 version and
 not the one listed for the 0.12.0.
 
-| Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware File                                                                      |
-|------------------------------------------|-----------|------------------------------------------------------------------------------------|
-| 0.12.0                                   | v4.1.4    | [`rcp-uart-802154_nsw_115200_v4.1.4.gbl`](./rcp-uart-802154_nsw_115200_v4.1.4.gbl) |
-| 0.11.0                                   | v4.2.0    | [`rcp-uart-802154_nsw_115200_v4.2.0.gbl`](./rcp-uart-802154_nsw_115200_v4.2.0.gbl) |
-| 0.6.1                                    | v4.1.2    | `-`                                                                                |
-| 0.5.1                                    | v4.1.1    | `-`                                                                                |
-| 0.5.0                                    | v4.1.0    | `-`                                                                                |
-| 0.4.0                                    | v4.0.2    | `-`                                                                                |
-| 0.2.0                                    | v4.0.1    | `-`                                                                                |
+| Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                                                                                                                           |
+|------------------------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.12.0                                   | v4.1.4    | [`ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl) |
+| 0.11.0                                   | v4.2.0    | [`ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl) |
+| 0.6.1                                    | v4.1.2    | `-`                                                                                                                                                                                                                                                                                      |
+| 0.5.1                                    | v4.1.1    | `-`                                                                                                                                                                                                                                                                                      |
+| 0.5.0                                    | v4.1.0    | `-`                                                                                                                                                                                                                                                                                      |
+| 0.4.0                                    | v4.0.2    | `-`                                                                                                                                                                                                                                                                                      |
+| 0.2.0                                    | v4.0.1    | `-`                                                                                                                                                                                                                                                                                      |
