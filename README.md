@@ -6,7 +6,7 @@ Multiprotocol Addon][silabs-multiprotocol] required firmware version.
 Original source: [SiliconLabs Multiprotocol (OpenThread+Zigbee) RCP
 (rcp-uart-802154)][silabs-gecko]
 
-**DISCLAIMER:** Use these firmware files at your own risk. I will upload them
+**⚠️ DISCLAIMER:* Use these firmware files at your own risk. I will upload them
 after testing them myself, however, I only have one USB Dongle and cannot
 guarantee they will work for all, as I am not an expert on these devices.
 
@@ -30,14 +30,10 @@ guarantee they will work for all, as I am not an expert on these devices.
 
 <!-- commander.exe gbl create rcp-uart-802154....gbl --app rcp-uart-802154....s37 -->
 
-**IMPORTANT:** Pick the correct firmware version for your dongle
-revision. Firmware with hardware flow control WON'T work in dongles that doesnt
-support it. So please check carefully which dongle revision you own.
-
 ## Firmware file naming schema
 
 ```
-ZB-GW04_vX.Y_GeckoSDK_vX.Y.Z_rcp-uart-802154_(no)hwfc_115200
+ZB-GW04_vX.Y_GeckoSDK_vX.Y.Z_rcp-uart-802154_(no)hwfc_115200.gbl
 `-----´ `--´ `-------------´ `-------------´ `------´ `----´
    |     |          |               |            |       |
    |     |          |               |            |       '- Baudrate
@@ -82,12 +78,16 @@ use the version from the previous listed version. For example, if you are using
 Addon version 0.11.4 you must use the firmware listed for the 0.11.0 version and
 not the one listed for the 0.12.0.
 
-| Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                                                                                                                           |
-|------------------------------------------|-----------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.12.0                                   | v4.1.4    | [`ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl) |
-| 0.11.0                                   | v4.2.0    | [`ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl) |
-| 0.6.1                                    | v4.1.2    | `-`                                                                                                                                                                                                                                                                                      |
-| 0.5.1                                    | v4.1.1    | `-`                                                                                                                                                                                                                                                                                      |
-| 0.5.0                                    | v4.1.0    | `-`                                                                                                                                                                                                                                                                                      |
-| 0.4.0                                    | v4.0.2    | `-`                                                                                                                                                                                                                                                                                      |
-| 0.2.0                                    | v4.0.1    | `-`                                                                                                                                                                                                                                                                                      |
+**⚠️ IMPORTANT:** Pick the correct firmware version for your dongle
+revision. Firmware with hardware flow control WON'T work in dongles that doesnt
+support it. So please check carefully which dongle revision you own.
+
+| Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                             |
+|------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.12.0                                   | v4.1.4    | [`ZB-GW04 v1.1`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl) |
+| 0.11.0                                   | v4.2.0    | [`ZB-GW04 v1.1`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl) |
+| 0.6.1                                    | v4.1.2    | `-`                                                                                                                                                                                        |
+| 0.5.1                                    | v4.1.1    | `-`                                                                                                                                                                                        |
+| 0.5.0                                    | v4.1.0    | `-`                                                                                                                                                                                        |
+| 0.4.0                                    | v4.0.2    | `-`                                                                                                                                                                                        |
+| 0.2.0                                    | v4.0.1    | `-`                                                                                                                                                                                        |
