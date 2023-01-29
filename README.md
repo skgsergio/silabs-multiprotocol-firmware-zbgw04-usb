@@ -10,20 +10,23 @@ Original source: [SiliconLabs Multiprotocol (OpenThread+Zigbee) RCP
 after testing them myself, however, I only have one USB Dongle and cannot
 guarantee they will work for all, as I am not an expert on these devices.
 
+[silabs-multiprotocol]: https://github.com/home-assistant/addons/tree/master/silabs-multiprotocol
+[silabs-gecko]: https://github.com/SiliconLabs/gecko_sdk
+
 ## Firmware configuration parameters
 
-| Setting / ZB-GW04 revision                      | v1.0/v1.1 (Without Hardware Flow Control) | v1.2 (With Hardware Flow Control) |
-|-------------------------------------------------|-------------------------------------------|-----------------------------------|
-| Board                                           | Custom Board                              | Custom Board                      |
-| Target Device                                   | EFR32MG21A020F768IM32                     | EFR32MG21A020F768IM32             |
-| RAIL Utility, PTI: Selected Module              | None                                      | None                              |
-| CPC Secondary - UART: Flow Control              | None                                      | CTS/RTS                           |
-| CPC Secondary - UART: RX                        | PB00                                      | PB00                              |
-| CPC Secondary - UART: TX                        | PB01                                      | PB01                              |
-| CPC Secondary - UART: CTS                       | None                                      | PD04                              |
-| CPC Secondary - UART: RTS                       | None                                      | PD03                              |
-| CPC Security                                    | Disabled Encryption                       | Disabled Encryption               |
-| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                       | 128                               |
+| ZB-GW04 revision ➡️<br />⬇️ Setting ⬇️             | v1.0/v1.1<br />(Without Hardware Flow Control) | v1.2<br />(With Hardware Flow Control) |
+|-------------------------------------------------|------------------------------------------------|----------------------------------------|
+| Board                                           | Custom Board                                   | Custom Board                           |
+| Target Device                                   | EFR32MG21A020F768IM32                          | EFR32MG21A020F768IM32                  |
+| RAIL Utility, PTI: Selected Module              | None                                           | None                                   |
+| CPC Secondary - UART: Flow Control              | None                                           | CTS/RTS                                |
+| CPC Secondary - UART: RX                        | PB00                                           | PB00                                   |
+| CPC Secondary - UART: TX                        | PB01                                           | PB01                                   |
+| CPC Secondary - UART: CTS                       | None                                           | PD04                                   |
+| CPC Secondary - UART: RTS                       | None                                           | PD03                                   |
+| CPC Security                                    | Disabled Encryption                            | Disabled Encryption                    |
+| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                            | 128                                    |
 
 <!-- commander.exe gbl create rcp-uart-802154....gbl --app rcp-uart-802154....s37 -->
 
