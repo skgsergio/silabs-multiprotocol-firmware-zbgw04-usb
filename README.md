@@ -6,7 +6,7 @@ Multiprotocol Addon][silabs-multiprotocol] required firmware version.
 Original source: [SiliconLabs Multiprotocol (OpenThread+Zigbee) RCP
 (rcp-uart-802154)][silabs-gecko]
 
-**⚠️ DISCLAIMER:* Use these firmware files at your own risk. I will upload them
+**⚠️ DISCLAIMER:** Use these firmware files at your own risk. I will upload them
 after testing them myself, however, I only have one USB Dongle and cannot
 guarantee they will work for all, as I am not an expert on these devices.
 
