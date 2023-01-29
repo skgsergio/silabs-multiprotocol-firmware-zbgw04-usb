@@ -15,18 +15,18 @@ guarantee they will work for all, as I am not an expert on these devices.
 
 ## Firmware configuration parameters
 
-| ZB-GW04 revision ➡️<br />⬇️ Setting ⬇️             | v1.0/v1.1<br />(Without Hardware Flow Control) | v1.2<br />(With Hardware Flow Control) |
-|-------------------------------------------------|------------------------------------------------|----------------------------------------|
-| Board                                           | Custom Board                                   | Custom Board                           |
-| Target Device                                   | EFR32MG21A020F768IM32                          | EFR32MG21A020F768IM32                  |
-| RAIL Utility, PTI: Selected Module              | None                                           | None                                   |
-| CPC Secondary - UART: Flow Control              | None                                           | CTS/RTS                                |
-| CPC Secondary - UART: RX                        | PB00                                           | PB00                                   |
-| CPC Secondary - UART: TX                        | PB01                                           | PB01                                   |
-| CPC Secondary - UART: CTS                       | None                                           | PD04                                   |
-| CPC Secondary - UART: RTS                       | None                                           | PD03                                   |
-| CPC Security                                    | Disabled Encryption                            | Disabled Encryption                    |
-| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                            | 128                                    |
+| ZB-GW04 revision ➡️<br />⬇️ Setting ⬇️             | v1.1<br />(Without Hardware Flow Control) | v1.2<br />(With Hardware Flow Control) |
+|-------------------------------------------------|-------------------------------------------|----------------------------------------|
+| Board                                           | Custom Board                              | Custom Board                           |
+| Target Device                                   | EFR32MG21A020F768IM32                     | EFR32MG21A020F768IM32                  |
+| RAIL Utility, PTI: Selected Module              | None                                      | None                                   |
+| CPC Secondary - UART: Flow Control              | None                                      | CTS/RTS                                |
+| CPC Secondary - UART: RX                        | PB00                                      | PB00                                   |
+| CPC Secondary - UART: TX                        | PB01                                      | PB01                                   |
+| CPC Secondary - UART: CTS                       | None                                      | PD04                                   |
+| CPC Secondary - UART: RTS                       | None                                      | PD03                                   |
+| CPC Security                                    | Disabled Encryption                       | Disabled Encryption                    |
+| High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                       | 128                                    |
 
 <!-- commander.exe gbl create rcp-uart-802154....gbl --app rcp-uart-802154....s37 -->
 
@@ -82,12 +82,12 @@ not the one listed for the 0.12.0.
 revision. Firmware with hardware flow control WON'T work in dongles that doesnt
 support it. So please check carefully which dongle revision you own.
 
-| Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                             |
-|------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.12.0                                   | v4.1.4    | [`ZB-GW04 v1.1`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl) |
-| 0.11.0                                   | v4.2.0    | [`ZB-GW04 v1.1`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl) |
-| 0.6.1                                    | v4.1.2    | `-`                                                                                                                                                                                        |
-| 0.5.1                                    | v4.1.1    | `-`                                                                                                                                                                                        |
-| 0.5.0                                    | v4.1.0    | `-`                                                                                                                                                                                        |
-| 0.4.0                                    | v4.0.2    | `-`                                                                                                                                                                                        |
-| 0.2.0                                    | v4.0.1    | `-`                                                                                                                                                                                        |
+| Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                                                                                   |
+|------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 0.12.0                                   | v4.1.4    | [`ZB-GW04 v1.1 (w/o hardware flow control)`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2 (w/ hardware flow control)`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl) |
+| 0.11.0                                   | v4.2.0    | [`ZB-GW04 v1.1 (w/o hardware flow control)`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2 (w/ hardware flow control)`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl)                           |
+| 0.6.1                                    | v4.1.2    | `-`                                                                                                                                                                                                                                              |
+| 0.5.1                                    | v4.1.1    | `-`                                                                                                                                                                                                                                              |
+| 0.5.0                                    | v4.1.0    | `-`                                                                                                                                                                                                                                              |
+| 0.4.0                                    | v4.0.2    | `-`                                                                                                                                                                                                                                              |
+| 0.2.0                                    | v4.0.1    | `-`                                                                                                                                                                                                                                              |
