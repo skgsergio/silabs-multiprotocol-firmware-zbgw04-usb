@@ -23,8 +23,8 @@ guarantee they will work for all, as I am not an expert on these devices.
 | CPC Secondary - UART: Flow Control              | None                                      | CTS/RTS                                |
 | CPC Secondary - UART: RX                        | PB00                                      | PB00                                   |
 | CPC Secondary - UART: TX                        | PB01                                      | PB01                                   |
-| CPC Secondary - UART: CTS                       | None                                      | PD04                                   |
-| CPC Secondary - UART: RTS                       | None                                      | PD03                                   |
+| CPC Secondary - UART: CTS                       | None                                      | PD03                                   |
+| CPC Secondary - UART: RTS                       | None                                      | PD04                                   |
 | CPC Security                                    | Disabled Encryption                       | Disabled Encryption                    |
 | High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                       | 128                                    |
 
