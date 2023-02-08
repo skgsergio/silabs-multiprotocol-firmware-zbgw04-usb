@@ -67,13 +67,19 @@ Use [universal-silabs-flasher][universal-silabs-flasher] as follows:
 ```sh
 universal-silabs-flasher \
     --device /dev/ttyUSB0 \
-    --bootloader-baudrate 115200 \
-    --baudrate 115200 \
+    --baudrate XXXXXX \
     flash \
     --firmware FIRMWARE_FILE.gbl \
-    --allow-downgrades \
     --allow-cross-flashing
 ```
+
+Set the baudrate parameter to the baudrate of the current firmware in the USB
+Dongle, from factory it comes with a `115200` baudrate firmware and here I build
+firmwares with `115200` or `230400`, it is specified in the firmware file
+name.
+
+If the wrong baudrate is used the flasher will fail with the message: `Error:
+Failed to probe running application type`.
 
 [universal-silabs-flasher]: https://github.com/NabuCasa/universal-silabs-flasher
 
@@ -94,7 +100,7 @@ support it. So please check carefully which dongle revision you own.
 
 | Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                                                                                   |
 |------------------------------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 0.13.0                                   | v4.2.1    | [`ZB-GW04 v1.1 (w/o hardware flow control)`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.1_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2 (w/ hardware flow control)`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.1_rcp-uart-802154_hwfc_115200.gbl) |
+| 0.13.0                                   | v4.2.1    | [`ZB-GW04 v1.1 (w/o hardware flow control)`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.1_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2 (w/ hardware flow control)`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.1_rcp-uart-802154_hwfc_230400.gbl) |
 | 0.12.0                                   | v4.1.4    | [`ZB-GW04 v1.1 (w/o hardware flow control)`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.1.4_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2 (w/ hardware flow control)`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.1.4_rcp-uart-802154_hwfc_115200.gbl) |
 | 0.11.0                                   | v4.2.0    | [`ZB-GW04 v1.1 (w/o hardware flow control)`](./firmware/ZB-GW04_v1.1_GeckoSDK_v4.2.0_rcp-uart-802154_nohwfc_115200.gbl)<br />[`ZB-GW04 v1.2 (w/ hardware flow control)`](./firmware/ZB-GW04_v1.2_GeckoSDK_v4.2.0_rcp-uart-802154_hwfc_115200.gbl)                           |
 | 0.6.1                                    | v4.1.2    | `-`                                                                                                                                                                                                                                              |
