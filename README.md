@@ -33,15 +33,17 @@ guarantee they will work for all, as I am not an expert on these devices.
 ## Firmware file naming schema
 
 ```
-ZB-GW04_vX.Y_GeckoSDK_vX.Y.Z_rcp-uart-802154_(no)hwfc_115200.gbl
-`-----´ `--´ `-------------´ `-------------´ `------´ `----´
-   |     |          |               |            |       |
-   |     |          |               |            |       '- Baudrate
-   |     |          |               |            |
-   |     |          |               |            |- nohwfc = No Hardware Flow Control
-   |     |          |               |            '- hwfc   = Hardware Flow Control
+ZB-GW04_vX.Y_GeckoSDK_vX.Y.Z_rcp-uart-802154_xxxxfc_115200.gbl
+`-----´ `--´ `-------------´ `-------------´ `----´ `----´
+   |     |          |               |          |       |
+   |     |          |               |          |       '- Baudrate
+   |     |          |               |          |
+   |     |          |               |          |- nohwfc = No Hardware Flow Control
+   |     |          |               |          |- hwfc   = Hardware Flow Control
+   |     |          |               |          '- swfc   = Software Flow Control
    |     |          |               |
-   |     |          |               '- Multiprotocol (OpenThread+Zigbee) RCP Firmware
+   |     |          |               |- rcp-uart-802154 = Multiprotocol (OpenThread+Zigbee) RCP Firmware
+   |     |          |               '- ncp-uart-hw     = Zigbee NCP Firmware
    |     |          |
    |     |          '- Gecko SDK version X.Y.Z
    |     |
@@ -49,6 +51,14 @@ ZB-GW04_vX.Y_GeckoSDK_vX.Y.Z_rcp-uart-802154_(no)hwfc_115200.gbl
    |
    '- Dongle Hardware Name
 ```
+
+**ℹ️ NOTE:** NCP firmwares in this repo are not tested in depth, I only build
+them for ZigBee sniffing purposes using [`bellows dump`][bellows]. They are
+built with the default firmware source parameters (configuring the CTUNE and
+UART) and adding the Manufacturing Library (mfglib) for the sniffing
+capability.
+
+[bellows]: https://github.com/zigpy/bellows
 
 ## Flashing instructions
 
@@ -79,7 +89,7 @@ Addon version 0.11.4 you must use the firmware listed for the 0.11.0 version and
 not the one listed for the 0.12.0.
 
 **⚠️ IMPORTANT:** Pick the correct firmware version for your dongle
-revision. Firmware with hardware flow control WON'T work in dongles that doesnt
+revision. Firmware with hardware flow control WON'T work in dongles that doesn't
 support it. So please check carefully which dongle revision you own.
 
 | Silicon Labs Multiprotocol Addon Version | Gecko SDK | Firmware Files                                                                                                                                                                                                                                   |
