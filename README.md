@@ -34,6 +34,7 @@ which is better as it supports hardware flow control.
 | CPC Secondary - UART: RTS                       | None                                      | PD04                                   |
 | CPC Security                                    | Disabled Encryption                       | Disabled Encryption                    |
 | High Frequency Crystal Oscillator (HFXO): CTUNE | 128                                       | 128                                    |
+| LED (Not in use)                                | PC00                                      | PC00                                   |
 
 <!-- commander.exe gbl create rcp-uart-802154....gbl --app rcp-uart-802154....s37 -->
 
