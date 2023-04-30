@@ -1,5 +1,14 @@
 # Multiprotocol/MultiPAN RCP Firmware for USB Dongles ZB-GW04 based on ZYZBP008 SM-011
 
+**ℹ️  IMPORTANT:** Firmware in this repo is manually built, this is unreliable in
+terms of build reproducibility and will cause slower releases when a new version
+is required. I highly encourage you to use one of the following repos to get
+your firmware as they use the automated build system by Nabu Casa for several
+devices:
+
+- https://github.com/ksjh/silabs-firmware-builder
+- https://github.com/darkxst/silabs-firmware-builder
+
 This repository aims to provide firmware files for ZB-GW04 dongles that are
 compatible with Home Assistant's [Silicon Labs Multiprotocol Addon][silabs-multiprotocol].
 
